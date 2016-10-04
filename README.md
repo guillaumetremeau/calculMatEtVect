@@ -1,2 +1,2 @@
 # calculMatEtVect
-Calcul matriciel et vectorel - TP1 - langage C - 1ISIMA
+Calcul matriciel et vectorel - TP3 - langage C - 1ISIMA
