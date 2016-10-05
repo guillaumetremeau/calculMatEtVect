@@ -1,40 +1,25 @@
 #include <stdio.h>
-
-typedef float * VecteurType;
-
-void afficherVecteur(VecteurType vecteur, int ordre);
-VecteurType lireVecteurDeFichier(const char * nom_fichier, int * p_ordre);
-float produitScalaire(VecteurType vecteur1, VecteurType vecteur2, int ordre);
-void libererVecteur(VecteurType * p_vecteur);
+#include <stdlib.h>
+#include "calvect.h"
 
 int main(){
 	float tab[] = {1.1,2.3};
+	int * ordre;
 	VecteurType v1 = tab;
-
+	VecteurType v2,v3;
+	ordre = (int *) malloc(sizeof(int));
 	afficherVecteur(v1,2);
 
+	printf("\n------------------------\n");
+
+	v2 = lireVecteurDeFichier("test.txt",ordre);
+	afficherVecteur(v2,*ordre);
+	v3 = lireVecteurDeFichier("v3.txt",ordre);
+	printf("\n------------------------\n");
+
+	printf("Résultat : %f",produitScalaire(v2,v3,*ordre));
+	printf("\n------------------------\n");
+	libererVecteur(&v2);
+	printf("\n------------------------\n");
 	return 0;
-}
-
-void afficherVecteur(VecteurType vecteur, int ordre){
-	int i;
-	printf("\n(");
-	for(i=0;i<ordre;i++){
-		printf("%f,",vecteur[i]);
-	}
-	printf(")");
-}
-
-VecteurType lireVecteurDeFichier(const char * nom_fichier, int * p_ordre){
-
-	return NIL;
-}
-
-float produitScalaire(VecteurType vecteur1, VecteurType vecteur2, int ordre){
-
-	return 0;
-}
-
-void libererVecteur(VecteurType * p_vecteur){
-
 }
